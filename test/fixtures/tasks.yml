@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: tasks
+#
+#  id              :integer          not null, primary key
+#  title           :string(255)
+#  course_id       :integer
+#  type            :string(255)
+#  due_date        :datetime
+#  estimated_score :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  course_id: 1
+  type: 
+  due_date: 2014-07-24 02:21:49
+  estimated_score: 1
+
+two:
+  title: MyString
+  course_id: 1
+  type: 
+  due_date: 2014-07-24 02:21:49
+  estimated_score: 1

@@ -38,3 +38,11 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# annotate models with DB info
+gem 'annotate', '~> 2.6.5'
+
+# Devise for user accounts
+gem 'devise'
+
+# Paperclip for attachments
+gem "paperclip", "~> 4.1"

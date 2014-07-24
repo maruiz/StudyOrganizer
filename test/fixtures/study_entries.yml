@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: study_entries
+#
+#  id         :integer          not null, primary key
+#  start      :datetime
+#  end        :datetime
+#  task_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start: 2014-07-24 02:30:39
+  end: 2014-07-24 02:30:39
+  task_id: 1
+
+two:
+  start: 2014-07-24 02:30:39
+  end: 2014-07-24 02:30:39
+  task_id: 1
