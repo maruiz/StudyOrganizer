@@ -10,6 +10,7 @@
 #  estimated_score :integer
 #  created_at      :datetime
 #  updated_at      :datetime
+#  member_id       :integer
 #
 
 class Test < Task
