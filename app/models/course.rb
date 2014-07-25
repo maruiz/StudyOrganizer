@@ -13,4 +13,9 @@
 class Course < ActiveRecord::Base
   belongs_to :members
   has_many :tasks
+
+  def self.courses_for_user(user)
+    user.courses
+  end
+
 end

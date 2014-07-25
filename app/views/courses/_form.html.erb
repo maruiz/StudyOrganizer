@@ -19,7 +19,12 @@
     <%= f.label :course_number %><br>
     <%= f.text_field :course_number %>
   </div>
-  <div class="actions">
+ 
+  <div>
+      <%= hidden_field_tag :user_id, current_user.id %>
+  </div>
+
+ <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
