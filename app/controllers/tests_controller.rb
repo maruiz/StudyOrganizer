@@ -42,7 +42,7 @@ class TestsController < ApplicationController
   def update
     respond_to do |format|
       if @test.update(test_params)
-        format.html { redirect_to @test, notice: 'Test was successfully updated.' }
+        format.html { redirect_to task_path(@test.id), notice: 'Test was successfully updated.' }
         format.json { render :show, status: :ok, location: @test }
       else
         format.html { render :edit }
@@ -64,11 +64,11 @@ class TestsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_test
-      @test = Test.find(params[:id])
+      @test = Task.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def test_params
-      params[:test]
+      params.require(:test).permit(:received_grade)
     end
 end

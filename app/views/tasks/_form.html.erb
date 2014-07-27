@@ -1,4 +1,4 @@
-<%= form_for(@task) do |f| %>
+<%= form_for(@task.becomes(Task)) do |f| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
@@ -12,12 +12,13 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :type %><br>
+    <%= select :task, :type, Task.types, {:include_blank => true} %>
+  </div>
+  <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :type %><br>
-    <%= select :task, :type, Task.types, {:include_blank => true} %>
   </div>
   <div class="field">
     <%= f.label :due_date %><br>
@@ -32,7 +33,7 @@
 
   <div class="field">
     <%= f.label :received_grade %><br>
-    <%= f.text_field :received_grade %>
+    <%= select :task, :received_grade, Task.grades, {:include_blank => true} %>
   </div>
 
   <div class="actions">

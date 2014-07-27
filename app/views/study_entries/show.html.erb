@@ -3,14 +3,12 @@
 
 <p>
   <strong>Start:</strong>
-  <%= @study_entry.start_date %>
-  <%= @study_entry.start_time %>
+  <%= @study_entry.start_time.strftime("%m/%d/%Y  %I:%M %p") %>
 </p>
 
 <p>
   <strong>End:</strong>
-  <%= @study_entry.end_date %>
-  <%= @study_entry.end_time %>
+  <%= @study_entry.end_time.strftime("%m/%d/%Y  %I:%M %p") %>
 </p>
 
 

@@ -69,6 +69,6 @@ class StudyEntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def study_entry_params
-      params.require(:study_entry).permit(:start_date, :start_time, :end_date, :end_time, :task_id)
+      params.require(:study_entry).permit(:start_time, :end_time, :task_id)
     end
 end

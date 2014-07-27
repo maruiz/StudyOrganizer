@@ -1,39 +1,39 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @course.title %>
-&nbsp;
-  <strong>Course No.:</strong>
-  <%= @course.course_number %>
+  <h2><%= @course.title%>&nbsp;<%= @course.course_number %></h2>
 </p>
 
-
 <p>
-  <strong>Homeworks:</strong>
+</br>
+<strong>&nbsp;Homeworks:</strong>
   <% if @course.homeworks %>
       <% @course.homeworks.each do |homework| %>
-         <li><%= link_to homework.title, task_path(homework.id) %>
-         </li>
-      <% end %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Projects:</strong>
-  <% if @course.projects %>
-      <% @course.projects.each do |project| %>
-	 <li><%= link_to project.title, task_path(project.id) %>
+         <li>
+	   <%= link_to homework.title, task_path(homework.id) %>
+           <%= homework.received_grade %>
 	 </li>
       <% end %>
   <% end %>
 </p>
 
 <p>
-  <strong>Tests:</strong>
+  <strong>&nbsp;Projects:</strong>
+  <% if @course.projects %>
+      <% @course.projects.each do |project| %>
+	 <li>
+	   <%= link_to project.title, task_path(project.id) %>
+	 </li>
+      <% end %>
+  <% end %>
+</p>
+
+<p>
+  <strong>&nbsp;Tests:</strong>
   <% if @course.tests %>
       <% @course.tests.each do |test| %>
-         <li><%= link_to test.title, task_path(test.id) %>
+         <li>
+	   <%= link_to test.title, task_path(test.id) %>
 	 </li>
       <% end %>
   <% end %>

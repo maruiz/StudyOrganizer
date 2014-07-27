@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727011309) do
+ActiveRecord::Schema.define(version: 20140727030523) do
 
   create_table "admins", force: true do |t|
     t.datetime "created_at"
@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 20140727011309) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "start_date"
-    t.time     "start_time"
+    t.datetime "start_time"
     t.date     "end_date"
-    t.time     "end_time"
+    t.datetime "end_time"
   end
 
   create_table "tasks", force: true do |t|

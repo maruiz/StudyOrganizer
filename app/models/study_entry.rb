@@ -7,9 +7,9 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  start_date :date
-#  start_time :time
+#  start_time :datetime
 #  end_date   :date
-#  end_time   :time
+#  end_time   :datetime
 #
 
 class StudyEntry < ActiveRecord::Base

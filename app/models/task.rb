@@ -27,5 +27,9 @@ class Task < ActiveRecord::Base
     course = Course.find(course_id)
   end
 
+  def self.grades
+    grades = ["A","B","C","D","F","I"]
+  end
+
 end
 

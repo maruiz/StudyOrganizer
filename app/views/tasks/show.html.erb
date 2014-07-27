@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong><%= @task.type %>&nbsp;Title:</strong>
-  <%= @task.title %>
+  <h2><%= @task.type %>:&nbsp;<%= @task.title %></h2>
 </p>
 
 <p>
@@ -12,7 +11,7 @@
 
 <p>
   <strong>Due date:</strong>
-  <%= @task.due_date %>
+  <%= @task.due_date.strftime("%m/%d/%Y") %>
 </p>
 
 <p>
@@ -23,13 +22,22 @@
 <p>
   <strong>Study Entries:</strong>
   <% if @task.study_entries %>
+  <% total_time = 0/(1.hour) %> 
   <% @task.study_entries.each do |study_entry| %>
     <li>
       <b>Time Spent:</b>
-  
+      <%= study_entry.start_time.strftime("%m/%d/%Y") %>
+      <%= study_entry.start_time.strftime("%I:%M%p") %> - 
+      <%= study_entry.end_time.strftime("%m/%d/%Y") %>
+      <%= study_entry.end_time.strftime("%I:%M%p") %> =
+      <%= number_with_precision(((study_entry.end_time - study_entry.start_time)/1.hour), :precision =>2) %>hrs
+      <% total_time = total_time + (study_entry.end_time - study_entry.start_time)/1.hour%>
     </li>
     <% end %>
   <% end %>
+  </br>
+  <b>Total Time Spent:</b>
+    <%= number_with_precision(total_time, :precision => 2) %>hrs
 </p>
 
 <p>
