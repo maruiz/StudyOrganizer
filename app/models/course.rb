@@ -18,4 +18,20 @@ class Course < ActiveRecord::Base
     user.courses
   end
 
+  def associated_member
+    member = Member.find(member_id)
+  end
+
+  def homeworks
+    tasks.select{|task| task.type.eql? "Homework"}
+  end
+
+  def projects
+    tasks.select{|task| task.type.eql? "Project"}
+  end
+
+  def tests
+    tasks.select{|task| task.type.eql? "Test"}
+  end
+ 
 end

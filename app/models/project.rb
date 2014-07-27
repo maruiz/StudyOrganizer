@@ -11,6 +11,7 @@
 #  created_at      :datetime
 #  updated_at      :datetime
 #  member_id       :integer
+#  received_grade  :string(1)
 #
 
 class Project < Task

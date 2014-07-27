@@ -25,7 +25,7 @@ class StudyEntriesController < ApplicationController
   # POST /study_entries.json
   def create
     @study_entry = StudyEntry.new(study_entry_params)
-
+    @study_entry.task_id = params[:task_id]
     respond_to do |format|
       if @study_entry.save
         format.html { redirect_to @study_entry, notice: 'Study entry was successfully created.' }
@@ -69,6 +69,6 @@ class StudyEntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def study_entry_params
-      params.require(:study_entry).permit(:start, :end, :task_id)
+      params.require(:study_entry).permit(:start_date, :start_time, :end_date, :end_time, :task_id)
     end
 end

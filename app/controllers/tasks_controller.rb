@@ -25,7 +25,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-
+    @task.course_id = params[:course_id]
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
@@ -69,6 +69,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :course_id, :type, :due_date, :estimated_score)
+      params.require(:task).permit(:title, :type, :due_date, :estimated_score)
     end
 end

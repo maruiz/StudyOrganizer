@@ -3,11 +3,45 @@
 <p>
   <strong>Title:</strong>
   <%= @course.title %>
+&nbsp;
+  <strong>Course No.:</strong>
+  <%= @course.course_number %>
+</p>
+
+
+<p>
+  <strong>Homeworks:</strong>
+  <% if @course.homeworks %>
+      <% @course.homeworks.each do |homework| %>
+         <li><%= link_to homework.title, task_path(homework.id) %>
+         </li>
+      <% end %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Course number:</strong>
-  <%= @course.course_number %>
+  <strong>Projects:</strong>
+  <% if @course.projects %>
+      <% @course.projects.each do |project| %>
+	 <li><%= link_to project.title, task_path(project.id) %>
+	 </li>
+      <% end %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Tests:</strong>
+  <% if @course.tests %>
+      <% @course.tests.each do |test| %>
+         <li><%= link_to test.title, task_path(test.id) %>
+	 </li>
+      <% end %>
+  <% end %>
+</p>
+
+</br>
+<p>
+<%= link_to 'New Task', new_task_path(:course_id => @course.id) %>
 </p>
 
 <%= link_to 'Edit', edit_course_path(@course) %> |

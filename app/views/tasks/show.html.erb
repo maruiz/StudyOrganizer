@@ -1,18 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= @task.type %>&nbsp;Title:</strong>
   <%= @task.title %>
 </p>
 
 <p>
   <strong>Course:</strong>
-  <%= @task.course_id %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @task.type %>
+  <%= @task.associated_course.title + " " + @task.associated_course.course_number%>
 </p>
 
 <p>
@@ -25,5 +20,26 @@
   <%= @task.estimated_score %>
 </p>
 
+<p>
+  <strong>Study Entries:</strong>
+  <% if @task.study_entries %>
+  <% @task.study_entries.each do |study_entry| %>
+    <li>
+      <b>Time Spent:</b>
+  
+    </li>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Actual Grade:</strong>
+  <%= @task.received_grade %>
+</p>
+
+</br>
+<%= link_to 'New Study Entry', new_study_entry_path(:task_id => @task.id) %>
+</br>
+</br>
 <%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Back', course_path(@task.course_id) %>

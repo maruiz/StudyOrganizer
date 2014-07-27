@@ -12,17 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :start %><br>
-    <%= f.datetime_select :start %>
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date %>
+    &nbsp;&nbsp;
+    <%= f.label :start_time %>
+    <%= f.time_field :start_time %>
   </div>
+
+
   <div class="field">
-    <%= f.label :end %><br>
-    <%= f.datetime_select :end %>
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date %>
+    &nbsp;&nbsp;
+    <%= f.label :end_time %>
+    <%= f.time_field :end_time %>
   </div>
-  <div class="field">
-    <%= f.label :task_id %><br>
-    <%= f.number_field :task_id %>
-  </div>
+
+  <%= hidden_field_tag :task_id, params[:task_id] %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

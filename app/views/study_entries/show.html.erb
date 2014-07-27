@@ -1,19 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <strong>Start:</strong>
-  <%= @study_entry.start %>
+  <%= @study_entry.start_date %>
+  <%= @study_entry.start_time %>
 </p>
 
 <p>
   <strong>End:</strong>
-  <%= @study_entry.end %>
+  <%= @study_entry.end_date %>
+  <%= @study_entry.end_time %>
 </p>
 
-<p>
-  <strong>Task:</strong>
-  <%= @study_entry.task_id %>
-</p>
 
 <%= link_to 'Edit', edit_study_entry_path(@study_entry) %> |
-<%= link_to 'Back', study_entries_path %>
+<%= link_to 'Back', task_path(@study_entry.task_id) %>
