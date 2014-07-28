@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Start:</strong>
+  <%= @study_entry.start_time.strftime("%m/%d/%Y  %I:%M %p") %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @study_entry.end_time.strftime("%m/%d/%Y  %I:%M %p") %>
+</p>
+
+
+<%= link_to 'Edit', edit_study_entry_path(@study_entry) %> |
+<%= link_to 'Back' %>

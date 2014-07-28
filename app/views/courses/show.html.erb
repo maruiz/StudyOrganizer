@@ -1,11 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <h2><%= @course.title%>&nbsp;<%= @course.course_number %></h2>
+  <h2>Tasks for <%= @course.title%>&nbsp;<%= @course.course_number%></h2>
 </p>
 
 <p>
-</br>
 <strong>&nbsp;Homeworks:</strong>
   <% if @course.homeworks %>
       <% @course.homeworks.each do |homework| %>    
@@ -15,7 +14,7 @@
 	       <th>&nbsp;Title&nbsp;</th>
 	       <th>&nbsp;Total Time&nbsp;</th>
 	       <th>&nbsp;Grade</th>
-	       <th colspan = "4">&nbsp;</th>
+	       <th colspan = "4"></th>
 	     </tr>
 	   </thead>
 
@@ -33,24 +32,24 @@
   <%= link_to 'Add a Homework', new_task_path(:course_id => @course.id, :type => "Homework") %>
 </p>
 <p>
-  <strong>&nbsp;Projects:</strong>
+<strong>&nbsp;Projects:</strong>
   <% if @course.projects %>
       <% @course.projects.each do |project| %>
           <table>
            <thead>
              <tr>
-               <th>&nbsp;Title&nbsp;</th>
-               <th>&nbsp;Total Time&nbsp;</th>
-               <th>&nbsp;Grade</th>
-               <th colspan = "4">&nbsp;</th>
+               <th>Title</th>
+               <th>Total Time</th>
+               <th>Grade</th>
+               <th colspan = "4"></th>
              </tr>
            </thead>
 
            <tbody>
              <tr>
-               <td>&nbsp; <%= link_to project.title, task_path(project.id) %><td>
-	       <td><td>
-	       <td><td>
+               <td>&nbsp;<%= link_to project.title, task_path(project.id) %></td>
+	       <td></td>
+	       <td></td>
             </tr>
            </tbody>
           </table>

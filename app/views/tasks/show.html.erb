@@ -27,6 +27,7 @@
     <li>
       <b><%= study_entry.start_time.strftime("%m/%d/%Y") %></b>
       <%= study_entry.start_time.strftime("%I:%M%p") %> - 
+      <%= study_entry.end_time.strftime("%m/%d/%Y") %>
       <%= study_entry.end_time.strftime("%I:%M%p") %> =
       <%= number_with_precision(((study_entry.end_time - study_entry.start_time)/1.hour), :precision =>2) %>hrs
       <% total_time = total_time + (study_entry.end_time - study_entry.start_time)/1.hour%>
