@@ -12,10 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :type %><br>
-    <%= select :task, :type, Task.types, {:include_blank => true} %>
-  </div>
-  <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
@@ -30,6 +26,7 @@
   </div>
 
   <%= hidden_field_tag :course_id, params[:course_id] %>
+  <%= hidden_field_tag :type, params[:type] %>
 
   <div class="field">
     <%= f.label :received_grade %><br>

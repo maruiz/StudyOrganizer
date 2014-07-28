@@ -3,4 +3,4 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @study_entry %> |
-<%= link_to 'Back', study_entries_path %>
+<%= link_to 'Back', task_path(@study_entry.task_id) %>

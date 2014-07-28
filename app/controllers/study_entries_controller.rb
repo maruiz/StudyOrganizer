@@ -15,6 +15,7 @@ class StudyEntriesController < ApplicationController
   # GET /study_entries/new
   def new
     @study_entry = StudyEntry.new
+    @study_entry.task_id = params[:task_id]
   end
 
   # GET /study_entries/1/edit
@@ -28,7 +29,7 @@ class StudyEntriesController < ApplicationController
     @study_entry.task_id = params[:task_id]
     respond_to do |format|
       if @study_entry.save
-        format.html { redirect_to @study_entry, notice: 'Study entry was successfully created.' }
+        format.html { redirect_to task_url(@study_entry.task_id), notice: 'Study entry was successfully created.' }
         format.json { render :show, status: :created, location: @study_entry }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class StudyEntriesController < ApplicationController
   def update
     respond_to do |format|
       if @study_entry.update(study_entry_params)
-        format.html { redirect_to @study_entry, notice: 'Study entry was successfully updated.' }
+        format.html { redirect_to task_url(@study_entry.task_id), notice: 'Study entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @study_entry }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class StudyEntriesController < ApplicationController
   def destroy
     @study_entry.destroy
     respond_to do |format|
-      format.html { redirect_to study_entries_url, notice: 'Study entry was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Study entry was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

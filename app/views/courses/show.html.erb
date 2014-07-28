@@ -9,14 +9,31 @@
 <strong>&nbsp;Homeworks:</strong>
   <% if @course.homeworks %>
       <% @course.homeworks.each do |homework| %>
-         <li>
-	   <%= link_to homework.title, task_path(homework.id) %>
-           <%= homework.received_grade %>
-	 </li>
+      
+         <table>
+	   <thead>
+	     <tr>
+	       <th>&nbsp;Title&nbsp;</th>
+	       <th>&nbsp;Total Time&nbsp;</th>
+	       <th>&nbsp;Grade</th>
+	       <th colspan = "4">&nbsp;</th>
+	     </tr>
+	   </thead>
+
+	   <tbody>
+	     <tr>
+	       <td>&nbsp;<%= link_to homework.title, task_path(homework.id) %><td>
+	       <td></td>
+	       <td><%= homework.received_grade %></td>
+	     </tr>
+           </tbody>
+	  </table>
       <% end %>
   <% end %>
+  </br>
+  <%= link_to 'Add a Homework', new_task_path(:course_id => @course.id, :type => "Homework") %>
 </p>
-
+</br>
 <p>
   <strong>&nbsp;Projects:</strong>
   <% if @course.projects %>
@@ -26,6 +43,8 @@
 	 </li>
       <% end %>
   <% end %>
+  </br>
+  <%= link_to 'Add a Project', new_task_path(:course_id => @course.id, :type => "Project") %>
 </p>
 
 <p>
@@ -37,12 +56,10 @@
 	 </li>
       <% end %>
   <% end %>
+  </br>
+  <%= link_to 'Add a Test', new_task_path(:course_id => @course.id, :type => "Test") %>
 </p>
 
 </br>
-<p>
-<%= link_to 'New Task', new_task_path(:course_id => @course.id) %>
-</p>
-
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
