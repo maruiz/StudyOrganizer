@@ -15,4 +15,8 @@
 class StudyEntry < ActiveRecord::Base
   belongs_to :tasks
 
+  def hours
+    (end_time - start_time)/1.hour
+  end
+
 end

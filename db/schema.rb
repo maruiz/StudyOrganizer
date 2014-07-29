@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727030523) do
+ActiveRecord::Schema.define(version: 20140728133329) do
 
   create_table "admins", force: true do |t|
     t.datetime "created_at"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20140727030523) do
     t.integer  "estimated_score"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "member_id"
     t.string   "received_grade",  limit: 1
   end
 

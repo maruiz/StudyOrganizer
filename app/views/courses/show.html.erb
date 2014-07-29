@@ -1,75 +1,51 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <h2>Tasks for <%= @course.title%>&nbsp;<%= @course.course_number%></h2>
-</p>
+<h2>Tasks for <%= @course.title%>&nbsp;<%= @course.course_number%></h2>
+
 
 <p>
-<strong>&nbsp;Homeworks:</strong>
+<strong>Homeworks:</strong>
   <% if @course.homeworks %>
       <% @course.homeworks.each do |homework| %>    
-         <table>
-	   <thead>
-	     <tr>
-	       <th>&nbsp;Title&nbsp;</th>
-	       <th>&nbsp;Total Time&nbsp;</th>
-	       <th>&nbsp;Grade</th>
-	       <th colspan = "4"></th>
-	     </tr>
-	   </thead>
-
-	   <tbody>
-	     <tr>
-	       <td>&nbsp;<%= link_to homework.title, task_path(homework.id) %><td>
-	       <td></td>
-	       <td><%= homework.received_grade %></td>
-	     </tr>
-           </tbody>
-	  </table>
+         <li><%= link_to homework.title, task_path(homework.id) %>
+	     &nbsp;&nbsp;<b>Hours Studied:  </b><%= homework.total_hours %>
+	   &nbsp;&nbsp;<b>Grade Received:  </b><%= homework.received_grade %></li>
       <% end %>
   <% end %>
   </br>
-  <%= link_to 'Add a Homework', new_task_path(:course_id => @course.id, :type => "Homework") %>
+&nbsp;&nbsp;
+<%= link_to 'Add a Homework', new_task_path(:course_id => @course.id, :type => "Homework") %>
+</br>
 </p>
+
 <p>
-<strong>&nbsp;Projects:</strong>
+<strong>Projects:</strong>
   <% if @course.projects %>
       <% @course.projects.each do |project| %>
-          <table>
-           <thead>
-             <tr>
-               <th>Title</th>
-               <th>Total Time</th>
-               <th>Grade</th>
-               <th colspan = "4"></th>
-             </tr>
-           </thead>
-
-           <tbody>
-             <tr>
-               <td>&nbsp;<%= link_to project.title, task_path(project.id) %></td>
-	       <td></td>
-	       <td></td>
-            </tr>
-           </tbody>
-          </table>
+          <li><%= link_to project.title, task_path(project.id) %>
+	       &nbsp;&nbsp;<b>Hours Studied:  </b><%= project.total_hours %>
+               &nbsp;&nbsp;<b>Grade Received:  </b><%= project.received_grade %></li>
       <% end %>
   <% end %>
   </br>
-  <%= link_to 'Add a Project', new_task_path(:course_id => @course.id, :type => "Project") %>
+&nbsp;&nbsp;
+<%= link_to 'Add a Project', new_task_path(:course_id => @course.id, :type => "Project") %>
+</br>
 </p>
 
+
 <p>
-  <strong>&nbsp;Tests:</strong>
+  <strong>Tests:</strong>
   <% if @course.tests %>
-      <% @course.tests.each do |test| %>
-         <li>
-	   <%= link_to test.title, task_path(test.id) %>
-	 </li>
+      <% @course.tests.each do |test| %>         
+         <li><%= link_to test.title, task_path(test.id) %>
+           &nbsp;&nbsp;<b>Hours Studied:  </b><%= test.total_hours %>
+           &nbsp;&nbsp;<b>Grade Received:  </b><%= test.received_grade %></li>
       <% end %>
   <% end %>
   </br>
-  <%= link_to 'Add a Test', new_task_path(:course_id => @course.id, :type => "Test") %>
+&nbsp;&nbsp;
+<%= link_to 'Add a Test', new_task_path(:course_id => @course.id, :type => "Test") %>
 </p>
 
 </br>

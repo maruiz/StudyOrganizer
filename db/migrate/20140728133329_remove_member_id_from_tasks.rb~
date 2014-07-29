@@ -1,0 +1,4 @@
+class RemoveMemberIdFromTasks < ActiveRecord::Migration
+  def change
+  end
+end

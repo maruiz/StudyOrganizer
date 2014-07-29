@@ -21,16 +21,14 @@
 
 <p>
   <strong>Study Entries:</strong>
-  <% if @task.study_entries %>
-  <% total_time = 0/(1.hour) %> 
+  <% if @task.study_entries %> 
   <% @task.study_entries.each do |study_entry| %>
     <li>
       <b><%= study_entry.start_time.strftime("%m/%d/%Y") %></b>
       <%= study_entry.start_time.strftime("%I:%M%p") %> - 
       <%= study_entry.end_time.strftime("%m/%d/%Y") %>
       <%= study_entry.end_time.strftime("%I:%M%p") %> =
-      <%= number_with_precision(((study_entry.end_time - study_entry.start_time)/1.hour), :precision =>2) %>hrs
-      <% total_time = total_time + (study_entry.end_time - study_entry.start_time)/1.hour%>
+      <%= number_with_precision(study_entry.hours, :precision =>2) %>hrs
       <%= link_to 'Edit', edit_study_entry_path(study_entry) %> 
       <td><%= link_to 'Destroy', study_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </li>
@@ -38,8 +36,7 @@
   <% end %>
   </br>
   Total study hours:
-    <%= number_with_precision(total_time, :precision => 2) %>hrs
-
+    <%= @task.total_hours %>hrs
 </br></br>
 <%= link_to 'New Study Entry', new_study_entry_path(:task_id => @task.id) %>
 </br>
